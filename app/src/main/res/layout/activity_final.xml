@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ic_bg"
+    android:gravity="center"
+    tools:context=".Final">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey, Congratulation!"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_finalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Score 9 out of 10"
+        android:textColor="@color/material_dynamic_neutral70"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:text="FINISH"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        />
+
+</LinearLayout>

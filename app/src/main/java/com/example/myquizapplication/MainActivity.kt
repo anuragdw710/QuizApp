@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
                 Toast.makeText(this,"Please give a name",Toast.LENGTH_SHORT).show()
             }else{
                 val intent = Intent(this,QuizQuestionActivity::class.java)
+                intent.putExtra(Constants.USER_NAME,et_name.text.toString())
                 startActivity(intent)
 
             }

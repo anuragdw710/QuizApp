@@ -1,5 +1,6 @@
 package com.example.myquizapplication
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -18,6 +19,7 @@ class QuizQuestionActivity  : AppCompatActivity(), View.OnClickListener {
     private  var mCurrentPosition : Int = 1
     private var mQuestionsList : ArrayList<Question>? = null
     private var mSelectOptionPosition: Int = 0
+    private  var mCorrectAnswer : Int = 0
 
     private  var tvQuestion : TextView? = null
     private var ivImage : ImageView? = null
@@ -30,10 +32,14 @@ class QuizQuestionActivity  : AppCompatActivity(), View.OnClickListener {
     private  var tvOptionFour : TextView? = null
 
     private var btnSubmit : Button? = null
+    private var mUserName : String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
+
         setContentView(R.layout.activity_quiz_question)
         tvQuestion = findViewById(R.id.tv_question)
         ivImage = findViewById(R.id.iv_image)
@@ -113,21 +119,25 @@ class QuizQuestionActivity  : AppCompatActivity(), View.OnClickListener {
         when(view?.id){
             R.id.tv_option_one -> {
                 tvOptionOne?.let{
+                    if(mSelectOptionPosition ==0)
                     selectedOptionView(it,1)
                 }
             }
             R.id.tv_option_two -> {
                 tvOptionTwo?.let{
+                    if(mSelectOptionPosition ==0)
                     selectedOptionView(it,2)
                 }
             }
             R.id.tv_option_three -> {
                 tvOptionThree?.let{
+                    if(mSelectOptionPosition ==0)
                     selectedOptionView(it,3)
                 }
             }
             R.id.tv_option_four -> {
                 tvOptionFour?.let{
+                    if(mSelectOptionPosition ==0)
                     selectedOptionView(it,4)
                 }
             }
@@ -137,13 +147,17 @@ class QuizQuestionActivity  : AppCompatActivity(), View.OnClickListener {
                     if(mCurrentPosition <= mQuestionsList!!.size){
                         setQuestion()
                     }else{
-                        Toast.makeText(this,"Test completed",Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this,Final::class.java)
+                        intent.putExtra(Constants.USER_NAME,mUserName)
+                        intent.putExtra(Constants.CORRECT_ANSWER,mCorrectAnswer.toString())
+                        intent.putExtra(Constants.TOTAL_QUESTION,mQuestionsList!!.size.toString())
+                        startActivity(intent)
                     }
                 }else{
                     val question = mQuestionsList?.get(mCurrentPosition-1)
                     if(question!!.correctAnswer!=mSelectOptionPosition ){
                         answerView(mSelectOptionPosition,R.drawable.wrong_option_border_bg)
-                    }
+                    }else mCorrectAnswer++
                     answerView(question.correctAnswer,R.drawable.correct_option_border_bg)
                     if(mCurrentPosition == mQuestionsList!!.size){
                         btnSubmit!!.text ="FINISH"
