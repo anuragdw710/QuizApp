@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="Theme.MyQuizApplication" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+</resources>
