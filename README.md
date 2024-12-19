@@ -1,9 +1,15 @@
 
+# [V1]
 
 - A visually appealing layout created with XML for modern and intuitive design.
 - Multiple-choice questions displayed dynamically using RecyclerView for better performance and flexibility.
 - Final score displayed with a Toast message and a summary screen.
 
+
+# [V2]:
+- Add Room Database to store quiz history locally.
+- Integrate a backend to fetch questions dynamically.
+- Implement leaderboard functionality using Firebase.
 
 # Activity 1
 ![image](https://github.com/user-attachments/assets/1c66655a-76cb-4555-8e13-1f8ee1a7b31f)
